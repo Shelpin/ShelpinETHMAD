@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}{{profile.user}}{% endblock %}
+{% block content %}
+{% for ong in object_list %}
+
+    <ul>
+        <li> Name: {{ong.name}} </li>
+        <li> Bank: {{ong.bank}} </li>
+    </ul>
+
+{% endfor %}
+{% endblock %}
