@@ -28,6 +28,7 @@ The menu if the website is:
 [**Merchants**](img/merchans_register_shelpin.png): Here you can find a list of all the merchant that are added in our platform.
 
 **ONG's**: Here you can find all the ONG's that are listed in our platform.
+
 **Login**: login website for the users.
 
 **Sign up**: here the users cand fill his information to registry.
