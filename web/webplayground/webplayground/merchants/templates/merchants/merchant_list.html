@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}{{profile.user}}{% endblock %}
+{% block content %}
+
+{% for merchant in object_list %}
+
+    <ul>
+        <li> Name: {{merchant.name}} </li>
+        <li> Donation: {{merchant.donation}} </li>
+    </ul>
+
+{% endfor %}
+
+{% endblock %}
+
