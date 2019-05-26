@@ -1,6 +1,6 @@
 # Shelpin Token
 
-The Shelpines token (SHP) is a standard ERC20 base on the framework of OpenZepelin. You can find more information [here](https://github.com/OpenZeppelin/openzeppelin-eth/tree/master/contracts/token/ERC20).
+The **Shelpines token (SHP)** is a standard ERC20 base on the framework of OpenZepelin. You can find more information [here](https://github.com/OpenZeppelin/openzeppelin-eth/tree/master/contracts/token/ERC20).
 
 
 The token was deployment to the **Rinkeby Network** in order to have real environment using the Ethereum Node of DappNode.
