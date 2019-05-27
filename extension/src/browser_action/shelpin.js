@@ -1,13 +1,16 @@
 
-var web3js;
+var web3;
 
 window.onload = function() {
-    web3js = new Web3(Web3.givenProvider);
-    console.log(web3js.version);
-        getERC20TokenBalance(tokenAddress, walletAddress, (balance) => {
-            console.log(balance);
-            document.getElementById('result').innerText = balance;
-        })
+    // add token making an account infura.io
+    const token = ''; 
+    web3 = new Web3(`https://ropsten.infura.io/v3/${token}`);
+    console.log('version', web3.version);
+
+    getERC20TokenBalance(tokenAddress, walletAddress, (balance) => {
+        console.log(balance);
+        document.getElementById('result').innerText = balance;
+    })
     drawMerchants();
 }
 
@@ -15,14 +18,16 @@ window.onload = function() {
 let tokenAddress = '0x2A65D41dbC6E8925bD9253abfAdaFab98eA53E34';
 let walletAddress = '0x821e28109872cad442da8d8335be37d317d4f1e7';
 
-function getERC20TokenBalance(tokenAddress, walletAddress, callback) {
-    let minABI = [
+async function getERC20TokenBalance(tokenAddress, walletAddress, callback) {
+    let abi = [
         {"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"type":"function"},
         {"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"type":"function"}
     ];
-    console.log(web3js);
+    console.log('web3', web3);
 
-    let contract = new web3js.eth.Contract(minABI, tokenAddress);
+    callback(await web3.eth.getBalance(tokenAddress));
+    
+    /* let contract = new web3js.eth.Contract(minABI, tokenAddress);
     console.log(contract);
     contract.methods.balanceOf(walletAddress).call(
         (error, balance) => {
@@ -34,7 +39,7 @@ function getERC20TokenBalance(tokenAddress, walletAddress, callback) {
                     balance = balance / (10**decimals);
                     callback(balance);
                 });
-    });
+    }); */
 }
 
 function drawMerchants() {
@@ -63,11 +68,3 @@ function drawMerchants() {
     }
     xhr.send();
 }
-
-
-
-
-
-
-
-
